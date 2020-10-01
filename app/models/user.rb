@@ -13,7 +13,7 @@ class User < ApplicationRecord
     format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}
 
   validates :password, presence: true,
-  length: {minimum: 6,
-           maximum: 25},
-  allow_nil: true
+    length: {minimum: 6,
+            maximum: 25},
+    allow_nil: true
 end
