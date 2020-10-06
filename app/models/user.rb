@@ -1,9 +1,11 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  has_many :courses, dependent: :nullify
+  has_many :logs, dependent: :nullify
   USERS_PARAMS = %i(email password password_confirmation).freeze
 
   validates :email, presence: true,
