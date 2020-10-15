@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: c4cc7648a24f62673dce71388acd8e0a966bd0d0
+  branch: master
+  specs:
+    faker (2.14.0)
+      i18n (>= 1.6, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -250,6 +258,7 @@ DEPENDENCIES
   byebug
   config
   devise
+  faker!
   figaro
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
