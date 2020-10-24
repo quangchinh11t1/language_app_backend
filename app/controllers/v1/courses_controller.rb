@@ -1,10 +1,10 @@
 class V1::CoursesController < ApplicationController
-  before_action :authenticate_request!, except: :get_all
+  before_action :authenticate_request!, except: [:get_all, :index, :show]
 
   def get_all
     @courses = Course.all
     @courses = ActiveModelSerializers::SerializableResource.new(@courses)
-    render json: {course: @courses}
+    render json: {courses: @courses}
   end
 
   def show
@@ -14,9 +14,9 @@ class V1::CoursesController < ApplicationController
   end
 
   def index
-    @course = @current_user.courses.all
-    @course = ActiveModelSerializers::SerializableResource.new(@course)
-    render json: {course: @course}
+    @courses = @current_user.courses.all
+    @courses = ActiveModelSerializers::SerializableResource.new(@courses)
+    render json: {courses: @courses}
   end
 
   def create
