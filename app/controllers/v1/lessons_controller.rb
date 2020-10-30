@@ -2,13 +2,13 @@ class V1::LessonsController < ApplicationController
   before_action :authenticate_request!, except: [:get_lessons, :index, :show]
 
   def get_lessons
-    @lessons = Lesson.find_by(course_id: params[:course_id])
+    @lessons = Lesson.all
     @lessons = ActiveModelSerializers::SerializableResource.new(@lessons)
     render json: {lessons: @lessons}
   end
 
   def index
-    @lessons = Lesson.all
+    @lessons = Lesson.where(course_id: params[:course_id])
     @lessons = ActiveModelSerializers::SerializableResource.new(@lessons)
     render json: {lessons: @lessons}
   end
